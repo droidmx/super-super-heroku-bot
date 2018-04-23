@@ -12,7 +12,9 @@ client.on('message', message => {
 });
 client.on('message', message => {
     if (message.content === 'test') {
-    	message.reply('working, active');
+    	message.reply({embed: {
+            color: 3447003,
+           description:'working, active'
   	}
 });
 
