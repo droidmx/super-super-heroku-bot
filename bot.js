@@ -1,16 +1,21 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const commando = require('discord.js-commando');
+const bot = new commando.Client();
 
-client.on('ready', () => {
+bot.registry.registerGroup('random', 'Random');
+bot.registry.registerCommandsIn(__dirname + "/commands");
+
+
+
+bot.on('ready', () => {
     console.log('I am ready!');
 });
 
-client.on('message', message => {
+bot.on('message', message => {
     if (message.content === 'ping') {
     	message.reply('pong');
   	}
 });
-client.on('message', message => {
+bot.on('message', message => {
     if (message.content === 'test') {
     	message.reply('working, active');
     }
